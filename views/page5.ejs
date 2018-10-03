@@ -1,0 +1,77 @@
+<% include partials/header %>
+<%if(data.response_code!=200){%>
+<h3>Data Not Available, or Site is under maintanence</h3>
+<%};%>
+<%if(data.response_code==200){%>
+<h3>Trains between stations.</h3>
+
+<table border="2px">
+<tr>
+<th>&nbspTrain Name</th>
+<th>&nbspTrain No.</th>
+<th>&nbspArrival Time</th>
+<th>&nbspDeparture Time</th>
+<th>&nbspTravel Time</th>
+<th>&nbspAvailability Days</th>
+<th>&nbspAvailable Classes</th>
+</tr>
+<%for(var i=0;i<data.trains.length;i++){%>
+<tr>
+<td>&nbsp<%=data.trains[i].name%></td>
+<td>&nbsp<%=data.trains[i].number%></td>
+<td>&nbsp<%=data.trains[i].dest_arrival_time%></td>
+<td>&nbsp<%=data.trains[i].src_departure_time%></td>
+<td>&nbsp<%=data.trains[i].travel_time%></td>
+<td><%for(var k=0;k<data.trains[i].days.length;k++){%>
+<%if(data.trains[i].days[k].runs=="Y"){%>
+&nbsp<%=data.trains[i].days[k].code%>
+<%if(k<(data.trains[i].days.length)-1){%>,
+<%}}};%></td>
+<td><%for(var j=0;j<data.trains[i].classes.length;j++){%>
+&nbsp<%=data.trains[i].classes[j].code%>
+<%if(j<(data.trains[i].classes.length)-1){%>,
+<%}};%></td>
+</tr>
+<%};%>
+</table>
+<hr>
+<table border="1px">
+<tr>
+<th>&nbspClass code</th>
+<th>&nbspClass name</th>
+</tr>
+<tr>
+<td>&nbsp1A</td>
+<td>&nbspFIRST AC</td>
+</tr>
+<tr>
+<td>&nbsp3E</td>
+<td>&nbsp3rd AC ECONOMY</td>
+</tr>
+<tr>
+<td>&nbspFC</td>
+<td>&nbspFIRST CLASS</td>
+</tr>
+<tr>
+<td>&nbsp2A</td>
+<td>&nbspSECOND AC</td>
+</tr>
+<tr>
+<td>&nbsp3A</td>
+<td>&nbsp3rd AC</td>
+</tr>
+<tr>
+<td>&nbspCC</td>
+<td>&nbspAC CHAIR CAR</td>
+</tr>
+<tr>
+<td>&nbsp2S</td>
+<td>&nbspSECOND SEATING</td>
+</tr>
+<tr>
+<td>&nbspSL</td>
+<td>&nbspSLEEPER CLASS</td>
+</tr>
+</table>
+<%};%>
+<% include partials/footer %>

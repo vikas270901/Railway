@@ -1,0 +1,70 @@
+<% include partials/header %>
+<%if(data.response_code!=200){%>
+<h3>Data Not Available, or Site is under maintanence</h3>
+<%};%>
+<%if(data.response_code==200){%>
+<table>
+<tr>
+<td>Train:</td>
+<td><%=data.train.name%></td>
+</tr>
+<td>Train Number:</td>
+<td><%=data.train.number%></td>
+</tr>
+<tr>
+<td>PNR Number:</td>
+<td><%=data.pnr%></td>
+</tr>
+<tr>
+<td>Boarding Station</td>
+<td><%=data.boarding_point.name%>(<%=data.boarding_point.code%>)<td>
+</tr>
+<tr>
+<td>To Station</td>
+<td><%=data.to_station.name%>(<%=data.to_station.code%>)</td>
+</tr>
+<tr>
+<td>Date of Journey</td>
+<td><%=data.doj%></td>
+</tr>
+<tr>
+<%if(data.chart_prepared){%>
+<td><strong>Chart Prepared.</strong></td>
+<%}%>
+<%if(!data.chart_prepared){%>
+<td><strong>oops!! Chart Not Prepared.</strong></td>
+<%}%><br>
+</table>
+<hr>
+<h4>Chart:</h4>
+<table border="2px">
+<tr>
+<th>&nbspPassenger&nbsp</th>
+<th>&nbspBooking Status&nbsp</th>
+<th>&nbspCurrent Status&nbsp</th>
+</tr>
+<%for(var i=0;i<data.passengers.length;i++){%>
+<tr>
+<td>&nbsp<%=i+1%></td>
+<td>&nbsp<%=data.passengers[i].booking_status%></td>
+<td>&nbsp<%=data.passengers[i].current_status%></td>
+</tr>
+<%};%>
+</table>
+<hr>
+<h5>Available classes</h5>
+<%var j=1;%>
+<%for(var i=0;i<data.train.classes.length;i++){%>
+<%if(data.train.classes[i].available=="Y"){%>
+(<%=j%>.)&nbsp<%=data.train.classes[i].name%><%j++%>
+(<strong><%=data.train.classes[i].code%></strong>)&nbsp
+<%}};%>
+<br>
+<h5>Train Availability</h5>
+<%for(var l=0;l<data.train.days.length;l++){%>
+<%if((data.train.days[l].runs)=="Y"){%>
+<%=data.train.days[l].code%>,&nbsp
+<%}};%>
+<hr>
+<%};%>
+<% include partials/footer %>

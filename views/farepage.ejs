@@ -1,0 +1,48 @@
+<%include partials/header%>
+<h2>Welcome to Fare Page.</h2>
+<form action="/irctc/fare" method="GET">
+<h4>Enter Train Number</h4>&nbsp<input type="text" name="train"  placeholder="Enter Train no">
+<br>
+<h4>Enter station code</h4>&nbsp<input type="text" name="src"  placeholder="eg:fd for faizabad"><br>
+<h4>Enter destination code</h4><input type="text" name="dst"  placeholder="eg:gkp for gorakhpur"><br>
+<h4>Enter Age</h4>&nbsp<input type="text" name="age"  placeholder="passenger's Age"><br>
+<h4>Enter Class preference</h4>&nbsp<input type="text" name="prf"  placeholder="eg:SL for sleeper"><br>
+<h4>Enter quota </h4><input type="text" name="qota"  placeholder="eg:GN for General"><br>
+<h4>Enter Date </h4>&nbsp<input type="text" name="date"  placeholder="dd-mm-yyyy format"><br>
+<input id="submit" type="submit">
+<a href="http://localhost:3002/farepage"><h4>Reload!!</h4></a>
+</form>
+<div id="quota">
+<h4>Quota and Class Description:</h4>
+GN&nbsp&nbspGeneral Quota<br>
+LD&nbsp&nbspLadies Quota<br>
+HO&nbsp&nbspHead quarters/high official Quota<br>
+DF&nbsp&nbspDefence Quota<br>
+PH&nbsp&nbspParliament house Quota<br>
+FT&nbsp&nbspForeign Tourist Quota<br>
+DP&nbsp&nbspDuty Pass Quota<br>
+tq&nbsp&nbspTatkal Quota<br>
+PT&nbsp&nbspPremium Tatkal Quota<br>
+SS&nbsp&nbspFemale(above 45 Year)/Senior Citizen/Travelling alone<br>
+HP&nbsp&nbspPhysically Handicapped Quota<br>
+RE&nbsp&nbspRailway Employee Staff on Duty for the train<br>
+GNRS&nbsp&nbspGeneral Quota Road Side<br>
+OS&nbsp&nbspOut Station<br>
+PQ&nbsp&nbspPooled Quota<br>
+RC(RAC)&nbsp&nbspReservation Against Cancellation<br>
+RS&nbsp&nbspRoad Side<br>
+YU&nbsp&nbspYuva<br>
+LB&nbsp&nbspLower Berth<br>
+</div>
+<div id="class">
+<h4>CLASSES:</h4>
+1A&nbsp&nbspFirst Air-Conditioned<br>
+2A&nbsp&nbsp2-tier Air-Conditioned sleeper<br>
+FC&nbsp&nbspFirst class<br>
+3A&nbsp&nbsp3 Tier<br>
+3E&nbsp&nbspAC 3 Tier Economy<br>
+CC&nbsp&nbspchair Car<br>
+SL&nbsp&nbspSleeper Class<br>
+2S&nbsp&nbspSecond Sitting<br>
+</div>
+<%include partials/footer%>

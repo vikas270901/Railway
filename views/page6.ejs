@@ -1,0 +1,23 @@
+<% include partials/header %>
+<%if(data.response_code!=200){%>
+<h3>Data Not Available, or Site is under maintanence</h3>
+<%};%>
+<%if(data.response_code==200){%>
+<h3>Trains Name/Number (info).</h3>
+
+Train Name:<b><%=data.train.name%></b><br>
+Train Number:<b><%=data.train.number%></b>
+<h4>Class Availibility</h4>
+<%for(var j=0;j<data.train.classes.length;j++){%>
+<%if(data.train.classes[j].available=="Y"){%>
+&nbsp<%=data.train.classes[j].name%>
+&nbsp<%=data.train.classes[j].code%>,&nbsp
+<%}};%>
+<h4>Available Days</h4>
+<%for(var k=0;k<data.train.days.length;k++){%>
+<%if(data.train.days[k].runs=="Y"){%>
+&nbsp<%=data.train.days[k].code%>
+<%if(k<(data.train.days.length)-1){%>,
+<%}}};%>
+<%};%>
+<% include partials/footer %>

@@ -1,0 +1,48 @@
+<% include partials/header %>
+<%if(data.response_code!=200){%>
+<h3>Data Not Available, or Site is under maintanence</h3>
+<%};%>
+<%if(data.response_code==200){%>
+<table>
+<tr>
+<td>Train Name:<%=data.train.name%></td>
+</tr>
+<tr>
+<td>Train Number:<%=data.train.number%></td>
+</tr>
+</table>
+<h5>Available classes</h5>
+<%var j=1;%>
+<%for(var i=0;i<data.train.classes.length;i++){%>
+<%if(data.train.classes[i].available=="Y"){%>
+(<%=j%>.)&nbsp<%=data.train.classes[i].name%><%j++%>
+(<strong><%=data.train.classes[i].code%></strong>)&nbsp
+<%}};%>
+<br>
+
+<hr>
+<h4>Train Availability</h4>
+<%for(var l=0;l<data.train.days.length;l++){%>
+<%if((data.train.days[l].runs)=="Y"){%>
+<%=data.train.days[l].code%>,&nbsp
+<%}};%>
+<hr>
+<h3>Route</h3>
+<table border="1px">
+<tr>
+<th>Sl.no.</th>
+<th>Journey Day</th>
+<th>Station</th>
+<th>Station code</th>
+</tr>
+<% for(var i=0; i<data.route.length; i++) {%>
+ <tr>
+ <td>&nbsp&nbsp<%=i+1%></td>
+ <td>&nbsp&nbspDay:<%=data.route[i].day%></td>
+ <td>&nbsp<%=data.route[i].station.name%></td>
+ <td>&nbsp(<strong><%=data.route[i].station.code%></strong>)&nbsp</td>
+</tr>
+<%};%>
+</table>
+<%};%>
+<% include partials/footer %>

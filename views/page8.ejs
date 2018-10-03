@@ -1,0 +1,35 @@
+<% include partials/header %>
+<%if(data.response_code!=200){%>
+<h3>Data Not Available, or Site is under maintanence</h3>
+<%};%>
+<%if(data.response_code==200){%>
+<table>
+<tr>
+<td>Total Trains Cancelled:<strong><%=data.total%></strong></td>
+</tr>
+</table>
+<h5>Trains cancelled</h5>
+<table border="1px">
+<tr>
+<th>Sl.no.</th>
+<th>Train Number</th>
+<th>Train Name</th>
+<th>Type</th>
+<th>Source Station</th>
+<th>Dest. Station</th>
+<th>Start Date</th>
+</tr>
+<% for(var i=0; i<data.trains.length; i++) {%>
+ <tr>
+ <td>&nbsp&nbsp<%=i+1%></td>
+ <td><%=data.trains[i].number%></td>
+ <td><%=data.trains[i].name%></td>
+ <td><%=data.trains[i].type%></td>
+ <td><%=data.trains[i].source.name%></td>
+ <td><%=data.trains[i].dest.name%></td>
+ <td><%=data.trains[i].start_time%></td>
+</tr>
+<%};%>
+</table>
+<%};%>
+<% include partials/footer %>

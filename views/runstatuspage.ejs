@@ -1,0 +1,9 @@
+<%include partials/header%>
+<h1>Welcome to Train Running status Page.</h1>
+<form action="/irctc/runstatus" method="GET">
+<h4>Enter Train number(eg:19166 for Sabarmati)</h4>&nbsp<input type="text" name="trainno"  placeholder="Enter train number"><br>
+<h4>Enter Date(dd-mm-yyyy format)</h4>&nbsp<input type="text" name="date"  placeholder="Enter Date"><br>
+<input id="submit" type="submit">
+<a href="http://localhost:3002/runstatuspage"><h4>Reload!!</h4></a>
+</form>
+<%include partials/footer%>

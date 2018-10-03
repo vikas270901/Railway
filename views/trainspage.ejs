@@ -1,0 +1,10 @@
+<%include partials/header%>
+<h1>Welcome to Train Route Page.</h1>
+<form action="/irctc/trains" method="GET">
+<h4>Enter Source Station Code(eg:fd for faizabad)</h4>&nbsp<input type="text" name="src"  placeholder="Enter source code"><br>
+<h4>Enter Destination station Code(eg lko for lucknow)</h4>&nbsp<input type="text" name="dest" placeholder="Enter Destination code"><br>
+<h4>Enter Date(dd-mm-yyyy format)</h4></h4><input type="text" name="date" placeholder="Enter Date"><br>
+<input id="submit" type="submit">
+<a href="http://localhost:3002/trainspage"><h4>Reload!!</h4></a>
+</form>
+<%include partials/footer%>

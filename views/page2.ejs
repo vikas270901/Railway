@@ -1,0 +1,47 @@
+<%include partials/header%>
+<div>
+<table border="1px">
+<tr><td><strong>Longitude</strong>:</td>
+<td><%=data.coord.lon%> E (degree)</td></tr>
+<tr><td><strong>Lattitude</strong>:</td>
+<td><%=data.coord.lat%> N (degree)</td></tr>
+<tr><td><strong>Weather condition</strong>:</td>
+<td><%=data.weather[0].main%><img src="<%data.weather.icon%>"></td></tr>
+<tr><td><strong>Weather description</strong>:</td>
+<td><%=data.weather[0].description%></td></tr>
+<tr><td><strong>Base</strong>:</td>
+<td><%=data.base%></td></tr>
+<tr><td><strong>Temperature</strong>:</td>
+<td><%=data.main.temp%>K</td></tr>
+<tr><td><strong>Pressure</strong>:</td>
+<td><%=data.main.pressure%>Pascal</td></tr>
+</div>
+<div id="float">
+<tr><td><strong>Humidity</strong>:</td>
+<td><%=data.main.humidity%>%</td></tr>
+<tr><td><strong>Minimum Temperature</strong>:</td>
+<td><%=data.main.temp_min%>K</td></tr>
+<tr><td><strong>Maximum Temperature</strong>:</td>
+<td><%=data.main.temp_max%>K</td></tr>
+<tr><td><strong>Visibility</strong>:</td>
+<td><%=data.visibility%></td></tr>
+<tr><td><strong>Wind Speed</strong>:</td>
+<td><%=data.wind.speed%>km/hr</td></tr>
+<tr><td><strong>Wind Direction(degrees)</strong>:</td>
+<td><%=data.wind.deg%> degree</td></tr>
+<tr><td><strong>Cloudiness</strong>:</td>
+<td><%=data.clouds.all%>%</td></tr>
+<tr><td><strong>Time of data Calculation</strong>:</td>
+<td><%=data.dt%>unix</td></tr>
+<tr><td><strong>City ID</strong>:</td>
+<td><%=data.id%></td></tr>
+<tr><td><strong>Sunrise</strong>:</td>
+<td><%=data.sys.sunrise%> unix</td></tr>
+<tr><td><strong>Sunset</strong>:</td>
+<td><%=data.sys.sunset%> unix</td></tr>
+<tr><td><strong>Country</strong>:</td>
+<td><%=data.name%>,<%=data.sys.country%></td></tr>
+</table>
+<h4><a href="http://localhost:3000/"><h4>BACK TO SUBMIT!!</h4></a>
+</div>
+<%include partials/footer%>

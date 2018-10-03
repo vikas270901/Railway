@@ -1,0 +1,52 @@
+<% include partials/header %>
+<%if(data.response_code!=200){%>
+<h3>Data Not Available, or Site is under maintanence</h3>
+<%};%>
+<%if(data.response_code==200){%>
+<img src="f.png">
+<h4>Current Status</h4>
+Current:<strong><%=data.current_station.name%>&nbsp(
+<%=data.current_station.code%>)</strong><br>
+Position:<strong><%=data.position%></strong><br>
+Start Date:<%=data.start_date%>
+<br>
+<h4>Train Availability</h4>
+<%for(var l=0;l<data.train.days.length;l++){%>
+<%if((data.train.days[l].runs)=="Y"){%>
+<%=data.train.days[l].code%>,&nbsp
+<%}};%>
+<hr>
+<table border="1px">
+<tr>
+<th>Sl. No.</th>
+<th>Arrival Time</th>
+<th>Arrived at</th>
+<th>Late by</th>
+<th>Departure Time</th>
+<th>Depart at</th>
+<th>&nbspArrival Date&nbsp</th>
+<th>&nbspStation&nbsp</th>
+<th>Distance</th>
+<th>Late Status</th>
+<th>Current Status</th>
+</tr>
+<%for(var i=0;i<data.route.length;i++){%>
+<tr>
+<td>&nbsp<%=i%>&nbsp</td>
+<td><%=data.route[i].scharr%></td>
+<td><%=data.route[i].actarr%></td>
+<td><%=data.route[i].latemin%></td>
+<td><%=data.route[i].schdep%></td>
+<td><%=data.route[i].actdep%></td>
+<td><%=data.route[i].scharr_date%></td>
+<td><%=data.route[i].station.name%>(<%=data.route[i].station.code%>)</td>
+<td><%=data.route[i].distance%>km</td>
+<td><%=data.route[i].status%></td>
+<td><%data.route[i].has_arrived%>
+<img src="f.png">
+</td>
+</tr>
+<%};%>
+</table>
+<%};%>
+<% include partials/footer %>
