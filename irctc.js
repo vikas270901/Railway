@@ -1,4 +1,5 @@
 var express = require("express");
+var PORT = process.env.PORT;
 var app = express();
 var request = require("request");
 app.set("view engine","ejs");
@@ -145,6 +146,6 @@ app.get("*", function(req, res){
 	res.send("Either the site is under maintanence or you entered something wrong (check after '/')");
 	});
 
-app.listen(3002, 2002, function(req, res){
-	console.log("Servers Started...");
+app.listen(PORT, process.env.IP, function(req, res){
+	console.log("Server Started...");
 	});
